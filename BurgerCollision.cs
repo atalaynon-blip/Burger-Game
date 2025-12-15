@@ -73,7 +73,7 @@ public class BurgerCollision : MonoBehaviour
             0.1f
         );
 
-        float damage = impact * impact * 0.4f; // quadratic damage (important)
+        float damage = impact * impact * 0.4f;
 
         if (impact >= bigHitThreshold)
             damage *= 1.5f;
@@ -99,3 +99,4 @@ public class BurgerCollision : MonoBehaviour
         }
     }
 }
+
