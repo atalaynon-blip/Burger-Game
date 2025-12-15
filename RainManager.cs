@@ -5,9 +5,9 @@ public class RainManager : MonoBehaviour
     public static RainManager Instance;
 
     [Header("Rain Settings")]
-    public GameObject rainPrefab;         // ParticleSystem prefab
-    public Transform spawnPoint;          // Where the rain spawns
-    public int rainLevel = 0;             // Number of upgrades bought
+    public GameObject rainPrefab;         
+    public Transform spawnPoint;          
+    public int rainLevel = 0;            
     public int maxLevel = 5;
 
     private ParticleSystem rainParticles;
@@ -54,3 +54,4 @@ public class RainManager : MonoBehaviour
         return rainLevel * 0.5f;
     }
 }
+
