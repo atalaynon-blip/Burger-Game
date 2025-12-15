@@ -10,9 +10,9 @@ public class BurgerEvent : MonoBehaviour
     public string eventName = "KETCHUP DIP";
     public int scoreValue = 1000;
     public GameObject impactVFX;
-    public float slowMoTime = 0.1f;   // duration of slow-motion
-    public float slowMoScale = 0.2f;  // time scale during slow-motion
-    public float textScaleDuration = 0.3f; // text scaling duration
+    public float slowMoTime = 0.1f;
+    public float slowMoScale = 0.2f; 
+    public float textScaleDuration = 0.3f; 
 
     [Header("Text Prefab")]
     public TextMeshProUGUI eventTextPrefab;
@@ -34,11 +34,11 @@ public class BurgerEvent : MonoBehaviour
 
         triggered = true;
 
-        // Spawn VFX at burger position
+        
         if (impactVFX != null)
             Instantiate(impactVFX, col.transform.position, Quaternion.identity);
 
-        // Spawn Event Text
+        
         if (eventTextPrefab != null)
         {
             TextMeshProUGUI text = Instantiate(
@@ -50,17 +50,17 @@ public class BurgerEvent : MonoBehaviour
 
             text.text = $"{eventName}\n+{scoreValue}";
 
-            Vector3 initialScale = Vector3.one; // start large
+            Vector3 initialScale = Vector3.one; 
             text.transform.localScale = initialScale;
 
-            // Start built-in coroutine to scale down
+          
             StartCoroutine(ScaleDownText(text.transform, textScaleDuration, initialScale));
         }
 
-        // Add score
+        
         ScoreManager.Instance.AddScore(scoreValue);
 
-        // Hit slow-motion
+        
         TimeSlow.Instance.Slow(slowMoScale, slowMoTime);
     }
 
@@ -74,7 +74,7 @@ public class BurgerEvent : MonoBehaviour
             timer += Time.unscaledDeltaTime;
             float t = timer / duration;
 
-            // EaseInBack-like curve
+           
             t = t * t * ((2.70158f) * t - 1.70158f);
 
             textTransform.localScale = Vector3.Lerp(startScale, endScale, t);
@@ -86,3 +86,4 @@ public class BurgerEvent : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
